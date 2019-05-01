@@ -7,3 +7,6 @@ mobs?
 dfcaverns?
 bonemeal?
 technic?
+quartz?
+gocm_carbon?
+mystical_agriculture?

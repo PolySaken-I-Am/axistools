@@ -1554,6 +1554,306 @@ if minetest.get_modpath("randomthings") then
 	
 end
 
+if minetest.get_modpath("quartz") then
+	axistools.register_tool_material(
+		"quartz:quartz_crystal", 
+		"quarz", 
+		"Quartz", 
+		"Quartz", 
+		0.6, 
+		10, 
+		{times={[1]=1.70, [2]=0.70, [3]=0.25}, uses=17, maxlevel=3}, -- snappy
+		{times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=13, maxlevel=3}, -- choppy
+		{times={[1]=1.8, [2]=0.8, [3]=0.40}, uses=13, maxlevel=3}, -- cracky 
+		{times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=10, maxlevel=3}, -- crumbly
+		{	
+			crystal=1,
+			tool=1,
+		},
+		"#ffffffd0", 
+		{
+			{
+				name=minetest.colorize("#59dbf2", "\nDelicate"),
+				type="all",
+				func=function(pos, node, digger)
+					minetest.after(0.1, function()
+						if minetest.registered_nodes[node.name].drop then
+							digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
+							digger:get_inventory():add_item("main", node.name)
+						end
+					end)
+				end,
+			}
+		}, 
+		{binding=1,
+		 handle=1,
+		 plate=1},
+		nil,
+		nil
+	)
+
+end
+
+if minetest.get_modpath("gocm_carbon") then
+		
+	axistools.register_tool_material(
+		"gocm_carbon:mese_diamond", 
+		"mese_diamond", 
+		"Mese Diamond", 
+		"Mese Diamond", 
+		0.6, 
+		10, 
+		{times={[1]=1.70, [2]=0.70, [3]=0.25}, uses=17, maxlevel=3}, -- snappy
+		{times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=13, maxlevel=3}, -- choppy
+		{times={[1]=1.8, [2]=0.8, [3]=0.40}, uses=13, maxlevel=3}, -- cracky 
+		{times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=10, maxlevel=3}, -- crumbly
+		{	
+			crystal=1,
+			tool=1,
+		},
+		"#acfbffd0", 
+		{
+			{
+				name=minetest.colorize("#acfbff", "\nPinpoint"),
+				type="all",
+				func=function(pos, node, digger)
+					minetest.after(0.1, function()
+						if minetest.registered_nodes[node.name].drop then
+							digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
+							digger:get_inventory():add_item("main", node.name)
+						end
+					end)
+				end,
+			}
+		}, 
+		{binding=1,
+		 handle=1,
+		 plate=1},
+		nil,
+		nil
+	)
+
+end
+--[[
+if minetest.get_modpath("mystical_agriculture") then
+	axistools.register_tool_material(
+		"mystical_agriculture:prosperity_ingot", 
+		"prosperity", 
+		"Prosperous", 
+		"Prosperity Essence", 
+		0.6, 
+		6, 
+		{times={[1]=1.70, [2]=0.70, [3]=0.25}, uses=17, maxlevel=3}, -- snappy
+		{times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=13, maxlevel=3}, -- choppy
+		{times={[1]=1.8, [2]=0.8, [3]=0.40}, uses=13, maxlevel=3}, -- cracky 
+		{times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=10, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			prosperity=1,
+			tool=1,
+		},
+		"#eeeeffd0", 
+		{
+			{
+				name="\nProsperous",
+				type="pick",
+				func=function(pos, node, digger)
+					math.randomseed(os.time())
+					local chance = math.random(1,10)
+					if chance==7 then
+						digger:get_inventory():add_item("main", "mystical_agriculture:prosperity_essence")
+					end
+					return true
+				end,
+			}
+		}, 
+		{},
+		23,
+		7
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:inferium_ingot", 
+		"inferium", 
+		"Inferior", 
+		"Inferium", 
+		1.1, 
+		5, 
+		{times={[1]=2.70, [2]=1.70, [3]=1.25}, uses=17, maxlevel=3}, -- snappy
+		{times={[1]=3.00, [2]=1.80, [3]=1.40}, uses=13, maxlevel=3}, -- choppy
+		{times={[1]=2.8, [2]=1.8, [3]=1.40}, uses=13, maxlevel=3}, -- cracky 
+		{times={[1]=2.10, [2]=1.50, [3]=1.30}, uses=10, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			inferium=1,
+			tool=1,
+		},
+		"#819b00d0", 
+		{
+			{
+				name=minetest.colorize("#819b00", "\nPathetic"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		11,
+		7
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:intermedium_ingot", 
+		"intermedium", 
+		"Intermediate", 
+		"Intermedium", 
+		0.8, 
+		6, 
+		{times={[1]=1.70, [2]=0.70, [3]=0.25}, uses=17, maxlevel=3}, -- snappy
+		{times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=13, maxlevel=3}, -- choppy
+		{times={[1]=1.8, [2]=0.8, [3]=0.40}, uses=13, maxlevel=3}, -- cracky 
+		{times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=10, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			intermedium=1,
+			tool=1,
+		},
+		"#c94d00d0", 
+		{
+			{
+				name=minetest.colorize("#c94d00", "\nModest"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		13,
+		7
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:prudentium_ingot", 
+		"prudentium", 
+		"Prudent", 
+		"Prudentium", 
+		0.5, 
+		7, 
+		{times={[1]=1.20, [2]=0.20, [3]=0.15}, uses=23, maxlevel=3}, -- snappy
+		{times={[1]=1.50, [2]=0.30, [3]=0.20}, uses=20, maxlevel=3}, -- choppy
+		{times={[1]=1.3, [2]=0.3, [3]=0.10}, uses=20, maxlevel=3}, -- cracky 
+		{times={[1]=0.40, [2]=0.10, [3]=0.05}, uses=17, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			prudentium=1,
+			tool=1,
+		},
+		"#009926d0", 
+		{
+			{
+				name=minetest.colorize("#009926", "\nProficient"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		18,
+		8
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:superium_ingot", 
+		"superium", 
+		"Super", 
+		"Superium", 
+		0.4, 
+		9, 
+		{times={[1]=1.00, [2]=0.10, [3]=0.05}, uses=33, maxlevel=3}, -- snappy
+		{times={[1]=1.00, [2]=0.20, [3]=0.10}, uses=30, maxlevel=3}, -- choppy
+		{times={[1]=0.9, [2]=0.1, [3]=0.05}, uses=30, maxlevel=3}, -- cracky 
+		{times={[1]=0.20, [2]=0.05, [3]=0.01}, uses=22, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			superium=1,
+			tool=1,
+		},
+		"#008aedd0", 
+		{
+			{
+				name=minetest.colorize("#008aed", "\nAdvanced"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		22,
+		8
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:supremium_ingot", 
+		"supremium", 
+		"Supreme", 
+		"Supremium", 
+		0.4, 
+		11, 
+		{times={[1]=1.00, [2]=0.10, [3]=0.05}, uses=43, maxlevel=3}, -- snappy
+		{times={[1]=1.00, [2]=0.20, [3]=0.10}, uses=40, maxlevel=3}, -- choppy
+		{times={[1]=0.9, [2]=0.1, [3]=0.05}, uses=40, maxlevel=3}, -- cracky 
+		{times={[1]=0.20, [2]=0.05, [3]=0.01}, uses=32, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			supremium=1,
+			tool=1,
+		},
+		"#d30000d0", 
+		{
+			{
+				name=minetest.colorize("#d30000", "\nExcellent"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		25,
+		6
+	)
+	
+	axistools.register_tool_material(
+		"mystical_agriculture:insanium_ingot", 
+		"insanium", 
+		"Insane", 
+		"Insanium", 
+		0.3, 
+		16, 
+		{times={[1]=1.00, [2]=0.10, [3]=0.05}, uses=43, maxlevel=3}, -- snappy
+		{times={[1]=1.00, [2]=0.20, [3]=0.10}, uses=40, maxlevel=3}, -- choppy
+		{times={[1]=0.9, [2]=0.1, [3]=0.05}, uses=40, maxlevel=3}, -- cracky 
+		{times={[1]=0.20, [2]=0.05, [3]=0.01}, uses=32, maxlevel=3}, -- crumbly
+		{	
+			metal=1,
+			insanium=1,
+			tool=1,
+		},
+		"#630099d0", 
+		{
+			{
+				name=minetest.colorize("#630099", "\nPenultimate"),
+				type="nil",
+				func=function(pos, node, digger)
+				end,
+			}
+		}, 
+		{},
+		30,
+		5
+	)
+	
+end
+]]
 
 local function tableHasKey(table,key)
     return table[key] ~= nil
